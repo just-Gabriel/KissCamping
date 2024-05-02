@@ -1,3 +1,4 @@
-body {
-    background-color: skyblue;
+.cadreTitre {
+  display: flex;
+  justify-content: center;
 }
