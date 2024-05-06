@@ -10,15 +10,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/cathegorie')]
 class CathegorieController extends AbstractController
 {
     
     #[Route('/', name: 'app_cathegorie_index', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function index(CathegorieRepository $cathegorieRepository): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        
         return $this->render('cathegorie/index.html.twig', [
             'cathegories' => $cathegorieRepository->findAll(),
         ]);

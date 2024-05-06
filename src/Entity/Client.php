@@ -37,19 +37,16 @@ class Client
     /**
      * @var Collection<int, Reservation>
      */
-    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'client')]
+    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'client', orphanRemoval: true)]
     private Collection $reservations;
 
-    /**
-     * @var Collection<int, Reservation>
-     */
-    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'clients')]
-    private Collection $client;
+   
+
+    
 
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
-        $this->client = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -159,33 +156,11 @@ class Client
         return $this;
     }
 
-    /**
-     * @return Collection<int, Reservation>
-     */
-    public function getClient(): Collection
-    {
-        return $this->client;
-    }
+  
 
-    public function addClient(Reservation $client): static
-    {
-        if (!$this->client->contains($client)) {
-            $this->client->add($client);
-            $client->setClients($this);
-        }
 
-        return $this;
-    }
 
-    public function removeClient(Reservation $client): static
-    {
-        if ($this->client->removeElement($client)) {
-            // set the owning side to null (unless already changed)
-            if ($client->getClients() === $this) {
-                $client->setClients(null);
-            }
-        }
+ 
 
-        return $this;
-    }
+
 }

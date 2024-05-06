@@ -8,7 +8,7 @@
     <table class="table table-dark table-hover">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Email</th>
@@ -21,7 +21,7 @@
         <tbody>
         {% for client in clients %}
             <tr>
-                <td>{{ client.id }}</td>
+                {# <td>{{ client.id }}</td> #}
                 <td>{{ client.nom }}</td>
                 <td>{{ client.prenom }}</td>
                 <td>{{ client.email }}</td>
@@ -41,5 +41,5 @@
         </tbody>
     </table>
 
-    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_new') }}">Create new</a></button>
+    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_new') }}">Créer un nouveau client</a></button>
 {% endblock %}

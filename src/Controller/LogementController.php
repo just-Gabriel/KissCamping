@@ -10,14 +10,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/logement')]
 class LogementController extends AbstractController
 {
     #[Route('/', name: 'app_logement_index', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function index(LogementRepository $logementRepository): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        // $this->denyAccessUnlessGranted('ROLE_USER');*************
         return $this->render('logement/index.html.twig', [
             'logements' => $logementRepository->findAll(),
         ]);

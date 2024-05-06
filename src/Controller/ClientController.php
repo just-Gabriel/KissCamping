@@ -10,14 +10,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/client')]
 class ClientController extends AbstractController
 {
     #[Route('/', name: 'app_client_index', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function index(ClientRepository $clientRepository): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        
         return $this->render('client/index.html.twig', [
             'clients' => $clientRepository->findAll(),
         ]);

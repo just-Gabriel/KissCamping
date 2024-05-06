@@ -24,10 +24,11 @@ class Reservation
     private ?\DateTimeInterface $datedepart = null;
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?Client $client = null;
 
-    #[ORM\ManyToOne(inversedBy: 'client')]
-    private ?Client $clients = null;
+    
+
 
     public function getId(): ?int
     {
@@ -82,15 +83,7 @@ class Reservation
         return $this;
     }
 
-    public function getClients(): ?Client
-    {
-        return $this->clients;
-    }
+  
 
-    public function setClients(?Client $clients): static
-    {
-        $this->clients = $clients;
 
-        return $this;
-    }
 }
