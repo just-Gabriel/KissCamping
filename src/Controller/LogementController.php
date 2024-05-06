@@ -17,6 +17,7 @@ class LogementController extends AbstractController
     #[Route('/', name: 'app_logement_index', methods: ['GET'])]
     public function index(LogementRepository $logementRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('logement/index.html.twig', [
             'logements' => $logementRepository->findAll(),
         ]);

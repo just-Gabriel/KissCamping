@@ -14,9 +14,11 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/cathegorie')]
 class CathegorieController extends AbstractController
 {
+    
     #[Route('/', name: 'app_cathegorie_index', methods: ['GET'])]
     public function index(CathegorieRepository $cathegorieRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('cathegorie/index.html.twig', [
             'cathegories' => $cathegorieRepository->findAll(),
         ]);
