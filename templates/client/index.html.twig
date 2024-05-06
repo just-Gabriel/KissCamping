@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+    <h1>Client index</h1>
+
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>NbPersonne</th>
+                <th>NbJourSurSite</th>
+                <th>Avis</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.id }}</td>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.prenom }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.nbPersonne }}</td>
+                <td>{{ client.nbJourSurSite }}</td>
+                <td>{{ client.avis }}</td>
+                <td>
+                    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_show', {'id': client.id}) }}">show</a></button>
+                    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_edit', {'id': client.id}) }}">edit</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_new') }}">Create new</a></button>
+{% endblock %}
