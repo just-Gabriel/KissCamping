@@ -29,8 +29,8 @@
                 <td>{{ client.nbJourSurSite }}</td>
                 <td>{{ client.avis }}</td>
                 <td>
-                    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_show', {'id': client.id}) }}">show</a></button>
-                    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_edit', {'id': client.id}) }}">edit</a></button>
+                    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_show', {'id': client.id}) }}">afficher</a></button>
+                    <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_client_edit', {'id': client.id}) }}">modifier</a></button>
                 </td>
             </tr>
         {% else %}
