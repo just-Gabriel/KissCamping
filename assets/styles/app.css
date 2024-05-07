@@ -1,4 +1,32 @@
 .cadreTitre {
   display: flex;
   justify-content: center;
+  /* border: 2px solid; */
+  /* border-color: coral; */
+}
+
+img {
+  border-radius: 5px;
+  border: 2px solid rgba(86, 150, 241, 0.323);
+}
+h1 {
+  padding: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  -webkit-text-stroke: 2px #f48a11;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.Form {
+  padding: 8px;
+  background-color: #f48a1137;
+  border: 2px solid black;
+  border-radius: 5px;
+  /* color: rgb(181, 212, 212); */
+  -webkit-text-stroke: 1px rgb(242, 170, 3);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+button {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -8,18 +8,20 @@
     <table class="table table-dark table-hover">
         <thead>
             <tr>
-                {# <th>Id</th> #}
+                
                 <th>NbPlace</th>
                 <th>Emplacement</th>
+                <th>Catégorie</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for logement in logements %}
             <tr>
-                {# <td>{{ logement.id }}</td> #}
+                
                 <td>{{ logement.nbPlace }}</td>
                 <td>{{ logement.emplacement }}</td>
+                <td>{{ logement.category.nom }}</td>
                 <td>
                     <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_logement_show', {'id': logement.id}) }}">show</a></button>
                     <button class="btn btn-outline-light me-5" type="button"><a href="{{ path('app_logement_edit', {'id': logement.id}) }}">edit</a></button>
